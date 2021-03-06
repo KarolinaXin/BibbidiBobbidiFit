@@ -31,4 +31,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.839"
         app:srcCompat="@drawable/little_red_riding_hood" />
+
+    <Button
+        android:id="@+id/step_counter_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Step Counter"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="58dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
