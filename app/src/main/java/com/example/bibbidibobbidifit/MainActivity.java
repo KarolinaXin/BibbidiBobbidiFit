@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -64,7 +65,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         welcomeNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 //hide welcome stuff
                 Button welcomeNextButton = (Button)findViewById(R.id.next_button);
                 ImageView welcomeBg = findViewById(R.id.red_bg);
@@ -74,6 +74,42 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 welcomeBg.setVisibility(View.GONE);
                 welcomeLilRed.setVisibility(View.GONE);
                 welcomeText.setVisibility(View.GONE);
+
+                // show get info screen
+                Button getInfoButton = (Button)findViewById(R.id.get_info_next);
+                ImageView getInfoBg = findViewById(R.id.get_info_bg);
+                TextView getInfoTitle = findViewById(R.id.get_info_text);
+                EditText nameInput = (EditText) findViewById(R.id.get_info_name_text);
+                EditText ageInput = (EditText) findViewById(R.id.get_info_age_text);
+                EditText countryInput = (EditText) findViewById(R.id.get_info_country_input);
+
+                getInfoButton.setVisibility(View.VISIBLE);
+                getInfoBg.setVisibility(View.VISIBLE);
+                getInfoTitle.setVisibility(View.VISIBLE);
+                nameInput.setVisibility(View.VISIBLE);
+                ageInput.setVisibility(View.VISIBLE);
+                countryInput.setVisibility(View.VISIBLE);
+            }
+        });
+
+        Button getInfoButton = (Button)findViewById(R.id.get_info_next);
+        getInfoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //hide get info stuff
+                Button getInfoButton = (Button)findViewById(R.id.get_info_next);
+                ImageView getInfoBg = findViewById(R.id.get_info_bg);
+                TextView getInfoTitle = findViewById(R.id.get_info_text);
+                EditText nameInput = (EditText) findViewById(R.id.get_info_name_text);
+                EditText ageInput = (EditText) findViewById(R.id.get_info_age_text);
+                EditText countryInput = (EditText) findViewById(R.id.get_info_country_input);
+
+                getInfoButton.setVisibility(View.GONE);
+                getInfoBg.setVisibility(View.GONE);
+                getInfoTitle.setVisibility(View.GONE);
+                nameInput.setVisibility(View.GONE);
+                ageInput.setVisibility(View.GONE);
+                countryInput.setVisibility(View.GONE);
 
                 // show main screen
                 showMainScreen();
