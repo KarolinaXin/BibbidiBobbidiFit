@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -59,6 +60,25 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
+        Button welcomeNextButton = (Button)findViewById(R.id.next_button);
+        welcomeNextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //hide welcome stuff
+                Button welcomeNextButton = (Button)findViewById(R.id.next_button);
+                ImageView welcomeBg = findViewById(R.id.red_bg);
+                ImageView welcomeLilRed = findViewById(R.id.welcome_red);
+                TextView welcomeText = findViewById(R.id.welcome_text);
+                welcomeNextButton.setVisibility(View.GONE);
+                welcomeBg.setVisibility(View.GONE);
+                welcomeLilRed.setVisibility(View.GONE);
+                welcomeText.setVisibility(View.GONE);
+
+                // show main screen
+                showMainScreen();
+            }
+        });
 
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction ft = manager.beginTransaction();
@@ -66,7 +86,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         ft.hide(homeFragment);
         ft.commit();
 
-        navView.setVisibility(View.GONE);
         getSupportActionBar().hide();
 
         Handler handler = new Handler();
@@ -94,17 +113,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                BottomNavigationView navView = findViewById(R.id.nav_view);
-
-                FragmentManager manager = getSupportFragmentManager();
-                FragmentTransaction ft = manager.beginTransaction();
-                Fragment homeFragment = manager.findFragmentById(R.id.nav_host_fragment);
-                ft = manager.beginTransaction();
-                ft.show(homeFragment);
-                ft.commit();
-
-                getSupportActionBar().show();
-                navView.setVisibility(View.VISIBLE);
+                Button welcomeNextButton = (Button)findViewById(R.id.next_button);
+                ImageView welcomeBg = findViewById(R.id.red_bg);
+                ImageView welcomeLilRed = findViewById(R.id.welcome_red);
+                TextView welcomeText = findViewById(R.id.welcome_text);
+                welcomeNextButton.setVisibility(View.VISIBLE);
+                welcomeBg.setVisibility(View.VISIBLE);
+                welcomeLilRed.setVisibility(View.VISIBLE);
+                welcomeText.setVisibility(View.VISIBLE);
             }
         }, 3300);
 
@@ -152,4 +168,17 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         return userSteps;
     }
 
+    private void showMainScreen() {
+        BottomNavigationView navView = findViewById(R.id.nav_view);
+
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction ft = manager.beginTransaction();
+        Fragment homeFragment = manager.findFragmentById(R.id.nav_host_fragment);
+        ft = manager.beginTransaction();
+        ft.show(homeFragment);
+        ft.commit();
+
+        getSupportActionBar().show();
+        navView.setVisibility(View.VISIBLE);
+    }
 }
