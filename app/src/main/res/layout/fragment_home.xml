@@ -1,16 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_home"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/map_bg_1"
     android:adjustViewBounds="true">
+
+
+<!--    <TextView-->
+<!--        android:id="@+id/textViewSteps"-->
+<!--        android:layout_width="205dp"-->
+<!--        android:layout_height="132dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="22dp"-->
+<!--        android:layout_marginEnd="95dp"-->
+<!--        android:text="Steps adventured today:"-->
+<!--        android:textColor="#FFFFFF"-->
+<!--        android:textSize="33sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/step_count_text_view" />-->
 
     <TextView
         android:id="@+id/current_quest_text_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginStart="8dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
@@ -28,7 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="8dp"
         android:textAlignment="center"
         android:textSize="20sp"
@@ -44,7 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="72dp"
         android:layout_marginEnd="8dp"
         android:textAlignment="center"
         android:textSize="20sp"
@@ -55,6 +73,143 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+<!--    <Button-->
+<!--        android:id="@+id/step_counter_btn"-->
+<!--        android:layout_width="120dp"-->
+<!--        android:layout_height="252dp"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginTop="484dp"-->
+<!--        android:layout_marginEnd="278dp"-->
+<!--        android:layout_marginBottom="19dp"-->
+<!--        android:background="#00FFFFFF"-->
+<!--        android:text="                                   "-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/step_count_text_view" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/bread"-->
+<!--        android:layout_width="140dp"-->
+<!--        android:layout_height="196dp"-->
+<!--        android:layout_marginStart="162dp"-->
+<!--        android:layout_marginEnd="85dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/step_count_text_view"-->
+<!--        app:srcCompat="@drawable/bread" />-->
+
+    <ImageView
+        android:id="@+id/bread"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="162dp"
+        android:layout_marginEnd="85dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/step_count_text_view"
+        app:srcCompat="@drawable/bread" />
+
+<!--    <ImageView-->
+<!--        android:id="@+id/flowers"-->
+<!--        android:layout_width="263dp"-->
+<!--        android:layout_height="136dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/step_counter_btn"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/bread"-->
+<!--        app:srcCompat="@drawable/flowers" />-->
+
+        <ImageView
+            android:id="@+id/flowers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/step_counter_btn"
+            app:layout_constraintTop_toBottomOf="@+id/bread"
+            app:srcCompat="@drawable/flowers" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="23dp"-->
+<!--        android:layout_marginEnd="95dp"-->
+<!--        android:text="Goal: 6000"-->
+<!--        android:textColor="#FFFFFF"-->
+<!--        android:textSize="33sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/step_count_text_view" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/speech"-->
+<!--        android:layout_width="290dp"-->
+<!--        android:layout_height="186dp"-->
+<!--        android:layout_marginStart="152dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/bread"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/step_counter_btn"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/flowers"-->
+<!--        app:layout_constraintVertical_bias="0.252"-->
+<!--        app:srcCompat="@drawable/speech" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView4"-->
+<!--        android:layout_width="176dp"-->
+<!--        android:layout_height="97dp"-->
+<!--        android:layout_marginTop="104dp"-->
+<!--        android:text="Hello Brave Adventurer! The woods are quite scary! Thank you so much for taking on this mission to get to my Grandma's!"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/bread" />-->
+
+    <ImageView
+        android:id="@+id/speech"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="184dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.505"
+        app:srcCompat="@drawable/speech" />
+
+
+    <!--    <ImageView-->
+<!--        android:id="@+id/big_red"-->
+<!--        android:layout_width="178dp"-->
+<!--        android:layout_height="228dp"-->
+<!--        android:maxWidth="500dp"-->
+<!--        android:maxHeight="400dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.549"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.922"-->
+<!--        app:srcCompat="@drawable/big_red" />-->
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="176dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="208dp"
+        android:text="Hello Brave Adventurer! The woods are quite scary! Thank you so much for taking on this mission to get to my Grandma's!"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <ImageView
         android:id="@+id/little_red"
         android:layout_width="wrap_content"
@@ -64,7 +219,7 @@
         app:layout_constraintHorizontal_bias="0.546"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.839"
+        app:layout_constraintVertical_bias="0.939"
         app:srcCompat="@drawable/little_red_riding_hood" />
 
 <!-- TODO(ellen): delete this button, it's meant for testing purposes   -->
@@ -92,5 +247,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.739" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
