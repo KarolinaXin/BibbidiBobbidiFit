@@ -23,7 +23,10 @@ public class ChallengeDialogFragment extends DialogFragment {
             public void onClick(DialogInterface dialog, int id) {
                 HomeFragment.currentQuest = HomeFragment.Quest.TRIP_TO_GRANDMAS;
                 HomeFragment.currentQuestTextView.setVisibility(View.VISIBLE);
-                HomeFragment.currentQuestTextView.setText(getResources().getString(R.string.current_quest_prefix) + HomeFragment.currentQuest.getValue());
+                HomeFragment.currentQuestTextView.setText(getResources().getString(R.string.current_quest_prefix) + HomeFragment.currentQuest.getName());
+                HomeFragment.currentQuestStepCount = HomeFragment.currentQuest.getTarget();
+                HomeFragment.stepsLeftTextView.setText("Steps left in quest: " + HomeFragment.currentQuestStepCount);
+                HomeFragment.stepsLeftTextView.setVisibility(View.VISIBLE);
             }
         }).setNegativeButton(R.string.quest_decline, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {

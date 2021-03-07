@@ -18,27 +18,36 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.bibbidibobbidifit.R;
 import com.example.bibbidibobbidifit.ui.ChallengeDialogFragment.ChallengeDialogFragment;
+import com.example.bibbidibobbidifit.ui.ChallengeNoActionDialogFragment.ChallengeNoActionDialogFragment;
 
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     public static int stepCount;
+    public static int currentQuestStepCount;
     public static enum Quest {
-        NONE(""),
-        TRIP_TO_GRANDMAS("Trip to Grandma's");
+        NONE("", 0),
+        TRIP_TO_GRANDMAS("Trip to Grandma's", 8);
 
-        private final String value;
+        private final String name;
+        private final int target;
 
-        private Quest(String value) {
-            this.value = value;
+        private Quest(String name, int target) {
+            this.name = name;
+            this.target = target;
         }
 
-        public String getValue() {
-            return value;
+        public String getName() {
+            return name;
+        }
+
+        public int getTarget() {
+            return target;
         }
     }
     public static Quest currentQuest;
     public static TextView currentQuestTextView;
+    public static TextView stepsLeftTextView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -49,8 +58,11 @@ public class HomeFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
         final TextView stepCountTextView = root.findViewById(R.id.step_count_text_view);
+
         HomeFragment.currentQuestTextView = root.findViewById(R.id.current_quest_text_view);
         HomeFragment.currentQuestTextView.setVisibility(View.GONE);
+        HomeFragment.stepsLeftTextView = root.findViewById(R.id.current_quest_step_left_text_view);
+        HomeFragment.stepsLeftTextView.setVisibility(View.GONE);
 
         final ImageView imageView = root.findViewById(R.id.little_red);
 
@@ -59,12 +71,26 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
                 HomeFragment.stepCount++;
+                if (HomeFragment.currentQuest != Quest.NONE) {
+                    HomeFragment.currentQuestStepCount--;
+                }
                 stepCounterBtn.setText("Step Count: " + HomeFragment.stepCount);
                 stepCountTextView.setText("Steps walked today: " + HomeFragment.stepCount);
+                stepsLeftTextView.setText("Steps left in quest: " + HomeFragment.currentQuestStepCount);
                 ConstraintLayout.LayoutParams layoutParams =
                         (ConstraintLayout.LayoutParams) imageView.getLayoutParams();
                 layoutParams.bottomMargin += 50;
                 imageView.setLayoutParams(layoutParams);
+
+                if (HomeFragment.currentQuestStepCount == HomeFragment.currentQuest.getTarget()) {
+                    final String congratsTitle = "Congratulations!";
+                    final String congratsText = "You have completed the quest: " + HomeFragment.currentQuest.getName();
+                    final ChallengeNoActionDialogFragment challengeCompleteFragment = new ChallengeNoActionDialogFragment(congratsTitle, congratsText);
+                    challengeCompleteFragment.show(fragmentManager, "ChallengeCompleteFragment");
+                    HomeFragment.currentQuest = Quest.NONE;
+                    HomeFragment.currentQuestTextView.setVisibility(View.GONE);
+                    HomeFragment.stepsLeftTextView.setVisibility(View.GONE);
+                }
             }
         });
 
