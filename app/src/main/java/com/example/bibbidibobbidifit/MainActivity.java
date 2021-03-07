@@ -61,17 +61,39 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
-        Button welcomeNextButton = (Button)findViewById(R.id.next_button);
+        final Button fitnessGoalNextBtn = (Button)findViewById(R.id.fitnessGoalsNextBtn);
+        final TextView t1 = findViewById(R.id.fitnessGoalTextView1);
+        final TextView t2 = findViewById(R.id.fitnessGoalTextView2);
+        final Button b1 = findViewById(R.id.veryActiveBtn);
+        final Button b2 = findViewById(R.id.activeBtn);
+        final Button b3 = findViewById(R.id.lessActiveBtn);
+        final EditText e1 = findViewById(R.id.editText);
+        final ImageView welcomeBg = findViewById(R.id.red_bg);
+
+        fitnessGoalNextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fitnessGoalNextBtn.setVisibility(View.GONE);
+                t1.setVisibility(View.GONE);
+                t2.setVisibility(View.GONE);
+                b1.setVisibility(View.GONE);
+                b2.setVisibility(View.GONE);
+                b3.setVisibility(View.GONE);
+                e1.setVisibility(View.GONE);
+                welcomeBg.setVisibility(View.GONE);
+                // show main screen
+                showMainScreen();
+            }
+        });
+        final Button welcomeNextButton = (Button)findViewById(R.id.next_button);
         welcomeNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //hide welcome stuff
-                Button welcomeNextButton = (Button)findViewById(R.id.next_button);
-                ImageView welcomeBg = findViewById(R.id.red_bg);
                 ImageView welcomeLilRed = findViewById(R.id.welcome_red);
                 TextView welcomeText = findViewById(R.id.welcome_text);
                 welcomeNextButton.setVisibility(View.GONE);
-                welcomeBg.setVisibility(View.GONE);
+//                welcomeBg.setVisibility(View.GONE);
                 welcomeLilRed.setVisibility(View.GONE);
                 welcomeText.setVisibility(View.GONE);
 
@@ -111,8 +133,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 ageInput.setVisibility(View.GONE);
                 countryInput.setVisibility(View.GONE);
 
-                // show main screen
-                showMainScreen();
+                fitnessGoalNextBtn.setVisibility(View.VISIBLE);
+                t1.setVisibility(View.VISIBLE);
+                t2.setVisibility(View.VISIBLE);
+                b1.setVisibility(View.VISIBLE);
+                b2.setVisibility(View.VISIBLE);
+                b3.setVisibility(View.VISIBLE);
+                e1.setVisibility(View.VISIBLE);
             }
         });
 

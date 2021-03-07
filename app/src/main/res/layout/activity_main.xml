@@ -199,5 +199,91 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/get_info_name_text" />
 
+    <TextView
+        android:id="@+id/fitnessGoalTextView1"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:text="How active do you want to be?"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        android:visibility="gone"
+        android:layout_marginTop="60dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/fitnessGoalTextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Let’s set a fitness goal!"
+        android:visibility="gone"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/fitnessGoalTextView1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <Button
+        android:id="@+id/veryActiveBtn"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:text="VERY ACTIVE     9000 STEPS/DAY"
+        android:backgroundTint="#FFFFFF"
+        android:visibility="gone"
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toBottomOf="@+id/fitnessGoalTextView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <Button
+        android:id="@+id/activeBtn"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:text="ACTIVE              6000 STEPS/DAY"
+        android:backgroundTint="#FFFFFF"
+        android:visibility="gone"
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toBottomOf="@+id/veryActiveBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <Button
+        android:id="@+id/lessActiveBtn"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FFFFFF"
+        android:text="LESS ACTIVE     3000 STEPS/DAY"
+        android:visibility="gone"
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toBottomOf="@+id/activeBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:color="#FFFFFF"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:padding="7dp"
+        android:text="SET CUSTOM GOAL"
+        android:visibility="gone"
+        android:layout_marginTop="60dp"
+        app:layout_constraintTop_toBottomOf="@+id/lessActiveBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <Button
+        android:id="@+id/fitnessGoalsNextBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:text="@string/next"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
