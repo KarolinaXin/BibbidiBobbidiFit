@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">BibbidiBobbidiFit</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">Quest</string>
+    <string name="title_dashboard">Store</string>
+    <string name="title_notifications">Profile</string>
     <string name="bibbidibobbidifit">BibbidiBobbidiFit</string>
     <string name="mulan_kick_silhouette">mulan kick silhouette</string>
     <string name="bluey_purple_and_black_background">bluey purple and black background</string>
@@ -16,5 +16,8 @@
         Little Red has stopped to gather flowers for her Grandma.\nAdventure 8 steps to help her pick the very best flowers for her Granny!
         \n\nCompletion Reward: 100 coins</string>
     <string name="current_quest_prefix">Current Quest: </string>
-
+    <string name="next">next</string>
+    <string name="light_red_background">light red background</string>
+    <string name="little_red_riding_hood">little red riding hood</string>
+    <string name="welcome_to_your_new_fitness_adventure">Welcome to your new fitness adventure!</string>
 </resources>
