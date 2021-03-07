@@ -5,29 +5,21 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-<<<<<<< HEAD
 import android.os.Handler;
 import android.view.View;
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.bibbidibobbidifit.ui.home.HomeViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-=======
 import android.view.WindowManager;
-import android.widget.TextView;
 
 import com.example.bibbidibobbidifit.ui.home.HomeFragment;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import androidx.appcompat.app.AppCompatActivity;
->>>>>>> 0175c15... Added steps to little red and some UI upgrades
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
@@ -35,13 +27,8 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-<<<<<<< HEAD
-
-public class MainActivity extends AppCompatActivity {
-=======
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
-    private TextView textViewStepCounter, textViewStepDetector;
     private SensorManager sensorManager;
     private Sensor mStepCounter;
     private boolean isCounterSensorPresent;
@@ -49,22 +36,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     //public Bundle bundle = new Bundle();
     public String userSteps = "0";
-    public String stepCount2 = "";
->>>>>>> 0175c15... Added steps to little red and some UI upgrades
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-<<<<<<< HEAD
-=======
-
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-       // textViewStepDetector = findViewById(R.id.textViewStepDetector);
-
-
-
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         if (sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER) != null) {
@@ -72,9 +50,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             isCounterSensorPresent = true;
         } else {
             isCounterSensorPresent = false;
-//            HomeFragment fragment = new HomeFragment(); //your fragment
-//            String s = String.valueOf(stepCount);
-//            fragment.setUserStepCount(s);
             System.out.println("User stepsstepCount " + stepCount);
             Bundle bundle = new Bundle();
             bundle.putString("stepCount", String.valueOf(stepCount));
@@ -83,7 +58,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             fragobj.setArguments(bundle);
         }
 
->>>>>>> 0175c15... Added steps to little red and some UI upgrades
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
         FragmentManager manager = getSupportFragmentManager();
