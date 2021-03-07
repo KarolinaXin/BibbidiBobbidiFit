@@ -20,4 +20,13 @@
     <string name="light_red_background">light red background</string>
     <string name="little_red_riding_hood">little red riding hood</string>
     <string name="welcome_to_your_new_fitness_adventure">Welcome to your new fitness adventure!</string>
+    <string name="light_green_background">light green background</string>
+    <string name="enter_your_name">enter your name</string>
+    <string name="first_off_let_s_get_to_know_you">First off, let\'s get to know you!</string>
+    <string name="name">Name</string>
+    <string name="country_optional">Country (optional)</string>
+    <string name="age_optional">Age (optional)</string>
+    <string name="country">country</string>
+    <string name="age">age</string>
+    <string name="name_2">name</string>
 </resources>
