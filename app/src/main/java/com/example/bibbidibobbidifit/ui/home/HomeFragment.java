@@ -9,14 +9,14 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.bibbidibobbidifit.R;
+import com.example.bibbidibobbidifit.ui.ChallengeDialogFragment.ChallengeDialogFragment;
 
 public class HomeFragment extends Fragment {
 
@@ -25,16 +25,13 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        final FragmentManager fragmentManager = this.getFragmentManager();
+
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        homeViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
+        final TextView stepCountTextView = root.findViewById(R.id.step_count_text_view);
 
         final ImageView imageView = root.findViewById(R.id.little_red);
 
@@ -44,14 +41,20 @@ public class HomeFragment extends Fragment {
                 // Code here executes on main thread after user presses button
                 stepCount++;
                 stepCounterBtn.setText("Step Count: " + stepCount);
-
+                stepCountTextView.setText("Steps walked today: " + stepCount);
                 ConstraintLayout.LayoutParams layoutParams =
                         (ConstraintLayout.LayoutParams) imageView.getLayoutParams();
-//        layoutParams.leftMargin = x - xDelta;
                 layoutParams.bottomMargin += 50;
-//        layoutParams.rightMargin = 0;
-//        layoutParams.bottomMargin = 0;
                 imageView.setLayoutParams(layoutParams);
+            }
+        }) ;
+
+        final Button challengeBtn = root.findViewById(R.id.challenge_btn);
+        challengeBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Code here executes on main thread after user presses button
+                ChallengeDialogFragment tmp = new ChallengeDialogFragment();
+                tmp.show(fragmentManager, "NoticeDialogFragment");
             }
         });
 

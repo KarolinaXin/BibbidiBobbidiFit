@@ -8,7 +8,7 @@
     android:adjustViewBounds="true">
 
     <TextView
-        android:id="@+id/text_home"
+        android:id="@+id/step_count_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -16,6 +16,9 @@
         android:layout_marginEnd="8dp"
         android:textAlignment="center"
         android:textSize="20sp"
+        android:text="Steps walked today: 0"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,12 +35,30 @@
         app:layout_constraintVertical_bias="0.839"
         app:srcCompat="@drawable/little_red_riding_hood" />
 
+<!-- TODO(ellen): delete this button, it's meant for testing purposes   -->
     <Button
         android:id="@+id/step_counter_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Step Counter"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="58dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.839" />
+
+    <!-- TODO(ellen): delete this button, it's meant for testing purposes   -->
+    <Button
+        android:id="@+id/challenge_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get Challenge"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.739" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
