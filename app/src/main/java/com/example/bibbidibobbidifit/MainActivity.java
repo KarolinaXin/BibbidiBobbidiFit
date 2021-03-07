@@ -139,8 +139,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
             userSteps = String.valueOf(stepCount);
             System.out.println("User steps " + userSteps);
-        }
 
+            HomeFragment.stepCount = stepCount;
+            HomeFragment.stepCountTextView.setText("Steps walked today: " + HomeFragment.stepCount);
+        }
     }
 
     @Override

@@ -51,6 +51,7 @@ public class HomeFragment extends Fragment {
     public static Quest currentQuest;
     public static TextView currentQuestTextView;
     public static TextView stepsLeftTextView;
+    public static TextView stepCountTextView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -61,7 +62,7 @@ public class HomeFragment extends Fragment {
 
         final View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        final TextView stepCountTextView = root.findViewById(R.id.step_count_text_view);
+        HomeFragment.stepCountTextView = root.findViewById(R.id.step_count_text_view);
 
         HomeFragment.currentQuest = Quest.NONE;
         HomeFragment.currentQuestTextView = root.findViewById(R.id.current_quest_text_view);
@@ -92,7 +93,7 @@ public class HomeFragment extends Fragment {
                     HomeFragment.currentQuestStepCount--;
                 }
                 stepCounterBtn.setText("Take Step");
-                stepCountTextView.setText("Steps walked today: " + HomeFragment.stepCount);
+                HomeFragment.stepCountTextView.setText("Steps walked today: " + HomeFragment.stepCount);
                 stepsLeftTextView.setText("Steps left in quest: " + HomeFragment.currentQuestStepCount);
 
                 layoutParams.bottomMargin += 50;
@@ -125,9 +126,6 @@ public class HomeFragment extends Fragment {
 //                int netSteps = (Integer.parseInt(((MainActivity)getActivity()).getUserSteps()) - initialSteps + 100);
 //
 //                textViewSteps.setText("Steps adventured today: " + netSteps);
-//
-//                welcomeSpeech.setVisibility(View.GONE);//makes it disappear
-//                speechImage.setVisibility(View.GONE);//makes it disappear
 //
 //                layoutParams.bottomMargin = (netSteps);
 //
