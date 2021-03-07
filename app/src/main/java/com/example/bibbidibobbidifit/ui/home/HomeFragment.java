@@ -1,5 +1,6 @@
 package com.example.bibbidibobbidifit.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +22,23 @@ import com.example.bibbidibobbidifit.ui.ChallengeDialogFragment.ChallengeDialogF
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
-    public int stepCount;
+    public static int stepCount;
+    public static enum Quest {
+        NONE(""),
+        TRIP_TO_GRANDMAS("Trip to Grandma's");
+
+        private final String value;
+
+        private Quest(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+    }
+    public static Quest currentQuest;
+    public static TextView currentQuestTextView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -32,6 +49,8 @@ public class HomeFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
         final TextView stepCountTextView = root.findViewById(R.id.step_count_text_view);
+        HomeFragment.currentQuestTextView = root.findViewById(R.id.current_quest_text_view);
+        HomeFragment.currentQuestTextView.setVisibility(View.GONE);
 
         final ImageView imageView = root.findViewById(R.id.little_red);
 
@@ -39,22 +58,22 @@ public class HomeFragment extends Fragment {
         stepCounterBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
-                stepCount++;
-                stepCounterBtn.setText("Step Count: " + stepCount);
-                stepCountTextView.setText("Steps walked today: " + stepCount);
+                HomeFragment.stepCount++;
+                stepCounterBtn.setText("Step Count: " + HomeFragment.stepCount);
+                stepCountTextView.setText("Steps walked today: " + HomeFragment.stepCount);
                 ConstraintLayout.LayoutParams layoutParams =
                         (ConstraintLayout.LayoutParams) imageView.getLayoutParams();
                 layoutParams.bottomMargin += 50;
                 imageView.setLayoutParams(layoutParams);
             }
-        }) ;
+        });
 
+        final ChallengeDialogFragment challengeDialogFragment = new ChallengeDialogFragment();
         final Button challengeBtn = root.findViewById(R.id.challenge_btn);
         challengeBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
-                ChallengeDialogFragment tmp = new ChallengeDialogFragment();
-                tmp.show(fragmentManager, "NoticeDialogFragment");
+                challengeDialogFragment.show(fragmentManager, "ChallengeDialogFragment");
             }
         });
 
