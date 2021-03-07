@@ -86,8 +86,7 @@
         android:layout_marginEnd="95dp"
         android:text="Goal: 6000"
         android:textColor="#FFFFFF"
-        android:textSize="33sp"
-        android:textStyle="bold"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -128,5 +127,27 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.922"
         app:srcCompat="@drawable/big_red" />
+
+    <TextView
+        android:id="@+id/current_quest_text_view"
+        android:layout_width="137dp"
+        android:layout_height="123dp"
+        android:layout_marginStart="16dp"
+        android:text="Current Quest:"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/current_quest_step_left_text_view"
+        android:layout_width="118dp"
+        android:layout_height="83dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="16dp"
+        android:text="Steps left to complete quest:"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flowers" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,4 +6,15 @@
     <string name="bibbidibobbidifit">BibbidiBobbidiFit</string>
     <string name="mulan_kick_silhouette">mulan kick silhouette</string>
     <string name="bluey_purple_and_black_background">bluey purple and black background</string>
+
+    <!-- challenges/quests -->
+    <string name="quest_accept">Accept</string>
+    <string name="quest_decline">Decline</string>
+    <string name="quest_title_prefix">New Quest! - </string>
+    <string name="quest_title_trip_to_grandmas">Trip to Grandma\'s</string>
+    <string name="quest_body_trip_to_grandmas">
+        Little Red has stopped to gather flowers for her Grandma.\nAdventure 8 steps to help her pick the very best flowers for her Granny!
+        \n\nCompletion Reward: 100 coins</string>
+    <string name="current_quest_prefix">Current Quest: </string>
+
 </resources>

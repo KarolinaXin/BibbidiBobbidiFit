@@ -22,6 +22,8 @@ import com.example.bibbidibobbidifit.ui.home.HomeFragment;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -33,9 +35,15 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private Sensor mStepCounter;
     private boolean isCounterSensorPresent;
     public int stepCount = 0;
+    private MutableLiveData<String> takingSteps;
 
     //public Bundle bundle = new Bundle();
-    public String userSteps = "0";
+    public  String userSteps = "0";
+
+    public MainActivity() {
+        takingSteps = new MutableLiveData<>();
+        takingSteps.setValue(userSteps);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,6 +158,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     public String getUserSteps() {
         return userSteps;
+    }
+
+
+
+    public LiveData<String> getTakingSteps() {
+        return takingSteps;
     }
 
 }
